@@ -103,12 +103,15 @@ def with_if_function():
 
 def cond():
     "*** YOUR CODE HERE ***"
+    return False
 
 def true_func():
     "*** YOUR CODE HERE ***"
+    return print(42)
 
 def false_func():
     "*** YOUR CODE HERE ***"
+    return print(47)
 
 
 def hailstone(x):
@@ -127,4 +130,14 @@ def hailstone(x):
     7
     """
     "*** YOUR CODE HERE ***"
+    a = 0
+    print(x)
+    if x == 1:
+        return 1
+    elif x % 2 == 0:
+        x = int(x / 2)
+    else:
+        x = int(3 * x + 1)
+    a = a + 1 + hailstone(x)
+    return a
 
