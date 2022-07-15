@@ -130,6 +130,7 @@ def hailstone(x):
     7
     """
     "*** YOUR CODE HERE ***"
+    # Solusion 1: Recursion
     a = 0
     print(x)
     if x == 1:
@@ -141,3 +142,14 @@ def hailstone(x):
     a = a + 1 + hailstone(x)
     return a
 
+    # Solusion 2: While-loop
+    
+    # a = 1
+    # while x > 1:
+    #     print(x)
+    #     if x % 2 == 0:
+    #         x = int(x / 2)
+    #     else:
+    #         x = int(x * 3 + 1)
+    #     a += 1
+    # return a
