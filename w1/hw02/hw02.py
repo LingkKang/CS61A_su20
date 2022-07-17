@@ -152,11 +152,10 @@ def make_repeater(func, n):
         n = n - 1
     return f
 
-    # Some attempts on one-line solusion, but failed :(
-        
-    # return identity if n == 0 else compose1
-    # compose1(func, accumulate(combiner=func, base=0, n=n-1, term=func))
-    # accumulate(add, 0, n - 1, compose1(func, func))
+    # The one-line solution:
+    # (refer to the markdown file for illustration)
+
+    # return accumulate(compose1, identity, n, lambda _: func)
 
 
 
@@ -169,10 +168,13 @@ def successor(n):
 def one(f):
     """Church numeral 1: same as successor(zero)"""
     "*** YOUR CODE HERE ***"
+    return lambda x: f(x)
+
 
 def two(f):
     """Church numeral 2: same as successor(successor(zero))"""
     "*** YOUR CODE HERE ***"
+    return lambda x: f(f(x))
 
 three = successor(two)
 
