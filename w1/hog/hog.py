@@ -22,6 +22,26 @@ def roll_dice(num_rolls, dice=six_sided):
     assert num_rolls > 0, 'Must roll at least once.'
     # BEGIN PROBLEM 1
     "*** YOUR CODE HERE ***"
+    
+    # Make sure you call dice exactly num_rolls times!
+    # If you call it fewer or more than that, it won't be at the right spot in the cycle for the next roll
+    # Note that a return statement in a for loop ends the loop
+
+    n = num_rolls
+    isOne = False
+    score = 0
+    while n > 0:
+        val = dice()
+        score += val
+        if val == 1:
+            isOne = True
+        n -= 1
+
+    if isOne:
+        return 1
+    else:
+        return score
+        
     # END PROBLEM 1
 
 
