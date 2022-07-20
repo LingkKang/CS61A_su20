@@ -61,6 +61,8 @@ def count_cond(condition):
         return count
     return counting
     
+
+
 def both_paths(sofar="S"):
     """
     >>> up, down = both_paths()
@@ -73,7 +75,14 @@ def both_paths(sofar="S"):
     SUU
     """
     "*** YOUR CODE HERE ***"
-
+    print(sofar)
+    upsofar = sofar + "U"
+    downsofar = sofar + "D"
+    def up():
+        return both_paths(upsofar)
+    def down():
+        return both_paths(downsofar)
+    return up, down
 
 
 def compose1(f, g):
