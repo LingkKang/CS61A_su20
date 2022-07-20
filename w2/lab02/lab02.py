@@ -1,4 +1,7 @@
 
+from tkinter import N
+
+
 def lambda_curry2(func):
     """
     Returns a Curried version of a two-argument function FUNC.
@@ -48,8 +51,16 @@ def count_cond(condition):
     """
     "*** YOUR CODE HERE ***"
 
-
-
+    def counting(n):
+        i = 1
+        count = 0
+        while i <= n:
+            if condition(n, i):
+                count += 1
+            i += 1
+        return count
+    return counting
+    
 def both_paths(sofar="S"):
     """
     >>> up, down = both_paths()
