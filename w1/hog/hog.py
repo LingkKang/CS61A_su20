@@ -53,12 +53,14 @@ def free_bacon(score):
     assert score < 100, 'The game should be over.'
     # BEGIN PROBLEM 2
     "*** YOUR CODE HERE ***"
+
     if score <= 9:
         return 10 - score
     else:
         tens = score // 10
         ones = 10 - score % 10
         return tens + ones
+
     # END PROBLEM 2
 
 
@@ -77,6 +79,12 @@ def take_turn(num_rolls, opponent_score, dice=six_sided):
     assert opponent_score < 100, 'The game should be over.'
     # BEGIN PROBLEM 3
     "*** YOUR CODE HERE ***"
+
+    if num_rolls == 0:
+        return free_bacon(opponent_score)
+    else:
+        return roll_dice(num_rolls, dice)
+        
     # END PROBLEM 3
 
 
