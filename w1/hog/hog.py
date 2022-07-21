@@ -145,6 +145,35 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     who = 0  # Who is about to take a turn, 0 (first) or 1 (second)
     # BEGIN PROBLEM 5
     "*** YOUR CODE HERE ***"
+
+    p0_roll_num = strategy0(score0, score1)
+    p1_roll_num = strategy1(score1, score0)
+
+    def check_ending(s0, s1):
+        "Return True if the process shoud end, i.e., one of the score is bigger than goal."
+        if s0 >= goal or s1 >= goal:
+            return True
+        else:
+            return False
+
+    if not feral_hogs:
+        while not check_ending(score0, score1):
+            score0 += take_turn(p0_roll_num, score1, dice)
+
+            if is_swap(score0, score1):
+                score0, score1 = score1, score0
+            who = other(who)
+
+            if check_ending(score0, score1):
+                return score0, score1
+            else:
+                score1 += take_turn(p1_roll_num, score0, dice)
+                who = other(who)
+                if is_swap(score1, score0):
+                    score0, score1 = score1, score0
+                    
+        return score0, score1
+
     # END PROBLEM 5
     # (note that the indentation for the problem 6 prompt (***YOUR CODE HERE***) might be misleading)
     # BEGIN PROBLEM 6
